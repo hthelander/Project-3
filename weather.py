@@ -1,42 +1,20 @@
-
-import numpy as np
 from flask import Flask, jsonify, render_template
+import sqlite3
 import sqlalchemy
+from sqlalchemy import create_engine, inspect
+from sqlalchemy import engine
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import engine, create_engine, func, inspect
-
-
 
 app = Flask(__name__)
 engine = sqlalchemy.create_engine("sqlite:///nps.sqlite",echo=False)
+#connection = engine.connect()
+#Base=automap_base()
+
 print(inspect(engine).get_table_names())
 
 @app.route("/")
 def welcome():
-  return render_template('amenities.html',)
-
-# @app.route("/amenities/")
-# def amenitiespage():
-#     return render_template('amenities.html')
-
-@app.route("/weather/")
-def weatherpage():
-    return render_template('weather.html')
-
-@app.route("/activities/")
-def activitiespage():
-    return render_template('activities.html')
-    
-@app.route("/api/v1.0/parks")
-def parks():
-    
-    results = engine.execute("select * from clean_df")
-    return jsonify([dict(_) for _ in results])
-
-print(inspect(engine).get_table_names())
-
-
+  return render_template('weather.html',)
 
 
 @app.route("/api/v1.0/weather")
@@ -107,13 +85,5 @@ if __name__ =='__main__':
 
 
 
-
-
-
-
-
-
-if __name__ =='__main__':
-    app.run(debug=True)
 
 
