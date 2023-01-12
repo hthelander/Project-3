@@ -1,6 +1,16 @@
+const url = "http://127.0.0.1:5000/api/v1.0/parks"
 
-d3.json("https://developer.nps.gov/api/v1/parks?&api_key=3VVoPjZ5YI3MPAt04digyVGeaCJcEkRd8mbX9qz1").then(function(data) {
-    console.log(data);
-  });
+const dataPromise = d3.json(url)
+console.log("Data Promise: ", dataPrmoise);
 
+// Fetch the JSON data and console log it
+d3.json(url).then(function(data) {
+  console.log(data.names);
+
+  let names = data.cost;
+
+  let metadata = data.fullName;
+
+  let samples = data.activity;
+});
 

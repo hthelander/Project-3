@@ -6,7 +6,7 @@
 
 Let's plan your next vacation to one of the many national parks!
 
-This collaborative project will allow the user to utlize an interactive dashboard that will help them plan their next vacation. The data includes information on weather, activities, location, associated fees, and much more!
+This collaborative project will allow the user to utilize an interactive dashboard that will help them plan their next vacation. The data includes information on weather, activities, location, associated fees, and much more!
 
 ## Analysis 
 
