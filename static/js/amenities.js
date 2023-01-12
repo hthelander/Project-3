@@ -4,6 +4,8 @@ function createMap(natlParks) {
     var streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
+
+    var topomap = L.tileLayer('')
   
   
     // Create a baseMaps object to hold the streetmap layer.
