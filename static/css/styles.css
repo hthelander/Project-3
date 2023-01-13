@@ -29,17 +29,17 @@ body {
   font-family: Arial;
 
   /* Visual */
-  background-color: #aea9a9;
+  /* background-color: #aea9a9; */
 }
 
  
 /* Media query for body */
 @media only screen and (max-width: 800px) {
   /* Set background color to white on small screens */
-  body {
-    /* Visual */
+  /* body {
+    
     background-color: rgb(169, 183, 189);
-  }
+  } */
 }
 
 /* ----DEFAULT ELEMENT STYLING END---- */
@@ -137,10 +137,11 @@ body {
 
   /* Positioning */
   margin-top: 32px;
+}
 
   /* Visual */
-  background-color: rgb(255, 255, 255);
-}
+  /* background-color: rgb(255, 255, 255);
+} */
 
 .description-content > p {
   /* Box-model */
@@ -306,4 +307,11 @@ body {
 #map-id {
   height: 100%;
   
+}
+
+
+body,
+html{
+  height: 100%; 
+  background-color: white;
 }

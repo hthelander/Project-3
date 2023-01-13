@@ -7,4 +7,80 @@
   body,
 html{
     height: 100%; 
+    /* background-color: aqua; */
 }
+
+/* ----NAV START---- */
+.navbar-custom {
+  background-color: rgb(169, 183, 189);
+}
+
+#logo {
+  /* Box-model */
+  height: 60px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+
+  /* Positioning */
+  margin-left: 70px;
+  font-family: "Lucida Console", "Courier New", monospace;
+   /* Typography */
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+
+  /* Visual */
+  /* background: rgb(245, 244, 244); */
+}
+
+/* Logo hover state */
+#logo:hover {
+  /* Visual */
+  opacity: 0.7;
+}
+
+.navbar-right-custom {
+  /* Box-model */
+  padding-top: 6px;
+  padding-right: 20px;
+
+  /* Typography */
+  font-family: Georgia, Times, "Times New Roman", serif;;
+  font-weight: lighter;
+  color: rgb(0, 0, 0);
+}
+
+/* Nav element hover state */
+.navbar-default .navbar-nav > li > a:hover {
+  color: #000000;
+}
+
+/* Media query for nav */
+@media only screen and (max-width: 800px) {
+  .navbar-header {
+    background-color: #000000;
+  }
+
+  #logo {
+    width: 100%;
+
+    /* Box-model */
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+
+    /* Positioning */
+    margin-left: 0;
+    font-family: Georgia, Times, "Times New Roman", serif;
+
+    /* Typography */
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+
+    /* Visual */
+    /* background: #020202; */
+  }
+}
+
+/* -----NAV END---- */

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //using jquery
 $(document).ready(function () {
   d3.json("http://127.0.0.1:5000/api/v1.0/weather").then((data) => {
@@ -117,24 +117,9 @@ var optionChanged = function () {
             t: 100,
           }
         }
+        console.log("test")
         Plotly.newPlot("plot", graph1, layout);
       });
     }
   }
 }
-
-
-
-
-=======
-d3.json("http://127.0.0.1:5000/api/v1.0/weather").then((data )=>{
-    
-console.log(data);
-})
-
-
-
-
-
-
->>>>>>> 197e38cb1e11caaa048328c98723c912c15e3966
