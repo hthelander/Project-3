@@ -14,19 +14,39 @@ print(inspect(engine).get_table_names())
 
 @app.route("/")
 def welcome():
-  return render_template('index.html',)
+  return render_template('index.html', pages = {
+    "homepate": "active",
+    "amenities": "",
+    "activities": "",
+    "weather": ""
+  })
 
 @app.route("/amenities/")
 def amenitiespage():
-    return render_template('amenities.html')
+    return render_template('amenities.html', pages = {
+      "homepage": "",
+      "amenities": "active",
+      "activities": "",
+      "weather": ""
+    })
 
 @app.route("/weather/")
 def weatherpage():
-    return render_template('weather.html')
+    return render_template('weather.html', pages = {
+      "homepage": "",
+      "amenities": "",
+      "activities": "",
+      "weather": "active"
+    })
 
 @app.route("/activities/")
 def activitiespage():
-    return render_template('activities.html')
+    return render_template('activities.html', pages = {
+      "homepage": "",
+      "amenities": "",
+      "activities": "active",
+      "weather": ""
+    })
     
 @app.route("/api/v1.0/parks")
 def parks():

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
- 
+
     <meta charset="UTF-8">
     <title>Project 3: National Parks</title>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
         integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
         crossorigin="" />
-    <script src="static/js/leaflet.extra-markers.min.js"></script>
+    <script src="{{url_for('static', filename= 'js/leaflet.extra-markers.min.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="static/css/leaflet.extra-markers.min.css">
-    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/leaflet.extra-markers.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
+
 
 </head>
 
@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container-fluid">
             <div class="col-xs-9 phone-nav">
-                <a class="navbar-brand" href="index.html" id="logo">Homepage</a>
+                <a class="navbar-brand" href="{{url_for('welcome') }}" id="logo">Homepage</a>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -42,21 +42,24 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="activities.html">Activites</a>
+                        <a class="nav-link {{pages['activities']}}" aria-current="page"
+                            href="{{url_for('activitiespage') }}">Activities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="amenities.html">Amenities</a>
+                        <a class="nav-link {{pages['amenities']}}" aria-current="page"
+                            href="{{url_for('amenitiespage') }}">Amenities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="weather.html">Weather</a>
+                        <a class="nav-link {{pages['weather']}}" aria-current="page"
+                            href="{{url_for('weatherpage') }}">Weather</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Map">Map</a>
+                    <!-- <li class="nav-item">
+                      <a class="nav-link" href="/Map">Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="..">Resources</a>
-                    </li>
+                      <a class="nav-link" href="..">Resources</a>
+                    </li> -->
 
                 </ul>
             </div>
@@ -66,8 +69,8 @@
     <!-- End of navbar -->
 
 
-    <div id="map"></div>
-    <script type="text/javascript" src="static/js/amenities.js"></script>
+    <div id="map-id"></div>
+    <script type="text/javascript" src="{{url_for('static', filename='js/amenities.js')}}"></script>
 </body>
 
 </html>
