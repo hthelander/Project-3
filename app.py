@@ -14,11 +14,11 @@ print(inspect(engine).get_table_names())
 
 @app.route("/")
 def welcome():
-  return render_template('amenities.html',)
+  return render_template('index.html',)
 
-# @app.route("/amenities/")
-# def amenitiespage():
-#     return render_template('amenities.html')
+@app.route("/amenities/")
+def amenitiespage():
+    return render_template('amenities.html')
 
 @app.route("/weather/")
 def weatherpage():
