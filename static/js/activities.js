@@ -24,6 +24,11 @@ function createMap(natlParks) {
     layers: [streetmap, natlParks]
   });
 
+  var marker = ({
+    markerColor: "green",
+    shape: "penta"
+  });
+
   // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
@@ -47,20 +52,6 @@ function createMarkers(response) {
   // Initialize an array to hold park markers.
   var parkMarkers = [];
   var activityMarkers = [];
-  // var treeIcon = L.icon.extend({
-  //   options: {
-  //     iconSize: [30, 30],
-  //     iconAnchor: [12, 68],
-  //     popupAnchor: [10, 35],
-  //   }
-    
-
-  // greenTree = new treeIcon({iconUrl: 'tree_icon.png'});
-
-  //   L.icon = function (options) {
-  //     return new L.Icon(oprions);
-  //   };
-
   
   
   
@@ -70,8 +61,10 @@ function createMarkers(response) {
     var park = parks[index];
 
     // For each park, create a marker, and bind a popup with the park's name and activity.
+    // var parkMarker = L.marker({markerColor: "green", shape: "penta"})([park.latitude, park.longitude])
+    // .bindPopup("<h3>" + park.fullName + "<h3> <h6>" + park.activity + "</h6>");
     var parkMarker = L.marker([park.latitude, park.longitude])
-    .bindPopup("<h3>" + park.fullName + "<h3> <h6>" + park.activity + "</h6>");
+    .bindPopup("<h3><strong>" + park.fullName + "<strong><h3> <h6>" + park.activity + "</h6>");
       // .bindPopup("<h3>" + park.fullName + "<h3>"),
       // activityMarker = L.marker([park.latitude, park.longitude])
       // .bindPopup("<h6>" + park.activity + "</h6>");
@@ -79,9 +72,7 @@ function createMarkers(response) {
 
       // .bindPopup("<h3>" + park.fullName + "<h3> <h6>" + park.activity + "</h6>");
 
-    // var activityMarker = L.marker([park.latitude, park.longitude])
-    //   .bindPopup("<h6>" + park.activity + "</h6>");
-
+   
     // Add the marker to the parkMarkers array.
     parkMarkers.push(parkMarker);
     // parkMarkers.push(parkMarker, activityMarker);
