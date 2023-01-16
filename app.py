@@ -56,16 +56,33 @@ def parks():
 
 print(inspect(engine).get_table_names())
 
+@app.route("/api/v1.0/images")
+def images():
 
+  results = engine.execute("select * from all_images_df")
+  return jsonify([dict(_) for _ in results])
 
+@app.route("/api/v1.0/campgrounds")
+def campgrounds():
 
+    results = engine.execute("select * from camp_df")
+    return jsonify([dict(_) for _ in results])
+
+@app.route("/api/v1.0/amenities")
+def amenities():
+    results = engine.execute("select * from all_amenities_df")
+    return jsonify([dict(_) for _ in results])
+
+@app.route("/api/v1.0/fees")
+def fees():
+    results = engine.execute("select * from all_fees_df")
+    return jsonify([dict(_) for _ in results])
+    
 @app.route("/api/v1.0/weather")
 def weather():
     results = engine.execute("select * from Summary_weather_data")
-   #  print(inspect(engine).results)
     return jsonify([dict(_) for _ in results])
    
-   # return render_template('weather.html',)
 @app.route("/api/v1.0/January")
 def January():
   results=engine.execute("select * from Jan_weather_data")   
