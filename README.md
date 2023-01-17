@@ -47,6 +47,6 @@ National Centers for Environmental Information: https://www.ncei.noaa.gov/access
 - Plotly
 - Leaflet 
 - Bootstrap
-- Jquery (JavaScript library that makes handling, manipulating, and animating easy to use in many browswers)
+- Jquery (JavaScript library that makes handling, manipulating, and animating easy to use in many browsers)
 - Travel icon pack by Ion Icons
 
