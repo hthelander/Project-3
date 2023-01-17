@@ -73,6 +73,12 @@ def amenities():
     results = engine.execute("select * from all_amenities_df")
     return jsonify([dict(_) for _ in results])
 
+@app.route("/api/v1.0/parkinglots")
+def parkinglots():
+  
+    results = engine.execute("select * from parkinglot_df")
+    return jsonify([dict(_) for _ in results])
+
 @app.route("/api/v1.0/fees")
 def fees():
     results = engine.execute("select * from all_fees_df")

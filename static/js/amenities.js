@@ -7,13 +7,14 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
 
     var campgrounds = campgoundsResponse
 
-    d3.json("http://127.0.0.1:5000/api/v1.0/images").then(function (imagesResponse) {
+    d3.json("http://127.0.0.1:5000/api/v1.0/parkinglots").then(function (parkinglotsResponse) {
       
-      var images = imagesResponse
+      var parkinglots = parkinglotsResponse
 
       console.log(parks)
       console.log(campgrounds)
-      console.log(images)
+      console.log(parkinglots)
+      console.log(parkinglots[0].name)
 
       var streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -77,6 +78,8 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
         markerColor: "green",
         shape: "penta"
         })
+      
+      
     
       for (var i = 0; i < parks.length; i++) {
         var park = parks[i];
@@ -98,9 +101,16 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
         var campgroundMarker = L.marker([campground.latitude, campground.longitude], {
           icon: campgroundIcon
         })
-          .bindPopup("<h5>" + campground.name + "<h5><h6>" + campground.description + "</h6>");
+          .bindPopup("<h5>" + campground.name + "<h5><h6>" +
+           "Reservable Sites: " + campground.numberOfSitesReservable +
+            "<h6><h6>" + "First-come, First-serve Sites: " + campground.numberOfSitesFirstComeFirstServe +
+            "<h6><h6>" + campground.description + "</h6>");
 
-        campgroundMarker.addTo(layers.CAMPGROUNDS)
+          campgroundClusters.addLayer(campgroundMarker)
+
+          campgroundClusters.addTo(layers.CAMPGROUNDS)
+
+
       }
     });
   }); 
