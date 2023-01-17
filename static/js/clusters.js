@@ -1,4 +1,3 @@
-// Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
 d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
 
   var parks = parksResponse
@@ -25,10 +24,14 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
 
 
     // Create a baseMaps object to hold the streetmap layer.
+
       var baseMaps = {
         "Street Map": streetmap,
         "Topography": topomap
       };
+
+      var parkClusters = L.markerClusterGroup();
+      var campgroundClusters = L.markerClusterGroup();
 
       var layers = {
         PARKS: new L.layerGroup(),
@@ -61,8 +64,6 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
       var parkMarkers = [];
       var campgroundMarkers = [];
 
-      var parkClusters = L.markerClusterGroup();
-      var campgroundClusters = L.markerClusterGroup();
     
       var parkIcon = L.ExtraMarkers.icon({
         icon: "ion-arrow-up-b",
@@ -86,6 +87,8 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
         })
           .bindPopup("<img src =" + park.image + "><h5>" + park.fullName + "<h5><h6>" + park.description + "</h6>");
 
+        // parkMarker.addTo(layers.PARKS)
+
         parkClusters.addLayer(parkMarker)
 
         parkClusters.addTo(layers.PARKS)
@@ -100,7 +103,13 @@ d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
         })
           .bindPopup("<h5>" + campground.name + "<h5><h6>" + campground.description + "</h6>");
 
-        campgroundMarker.addTo(layers.CAMPGROUNDS)
+        campgroundClusters.addLayer(campgroundMarker)
+
+        // campgroundMarker.addTo(layers.CAMPGROUNDS)
+
+        campgroundClusters.addTo(layers.CAMPGROUNDS)
+
+        
       }
     });
   }); 
