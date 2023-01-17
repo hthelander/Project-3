@@ -1,6 +1,6 @@
 # <p align = "center"> Plan Your Next Vacation </p>
 
-![](Images/nps_logo.jpg)
+![](./static/images/nps_logo.jpg)
 
 ## Overview
 
