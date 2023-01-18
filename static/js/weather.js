@@ -1,7 +1,7 @@
 
 //using jquery
 $(document).ready(function () {
-  d3.json("http://127.0.0.1:5000/api/v1.0/weather").then((data) => {
+  d3.json(weatherurl).then((data) => {
 
     console.log(data);
     let loc = [], ag = [], mea = [];
@@ -59,13 +59,15 @@ $(document).ready(function () {
 var optionChanged = function () {
   var months = ["January", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov"];
 
+  console.log(monthlyurl)
+
   for (var i = 0; i <= months.length; i++) {
     console.log(months[i]);
     var result = months[i].substr(0, 3);
     console.log(result);
     if (result = $('#aggregate').val()) {
 
-      d3.json("http://127.0.0.1:5000/api/v1.0/" + months[i]).then((data) => {
+      d3.json(monthlyurl[result]).then((data) => {
         console.log(data);
 
         let loc = [], ag = [], mea = [];
