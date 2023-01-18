@@ -111,7 +111,20 @@
                 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
               </script>
-
+              <script>const weatherurl = "{{url_for('weather')}}";</script>
+              <script>const monthlyurl = {
+                "Jan": "{{url_for('January')}}",
+                "Feb": "{{url_for('Feb')}}",
+                "Mar": "{{url_for('Mar')}}",
+                "Apr": "{{url_for('April')}}", 
+                "May": "{{url_for('May')}}",
+                "June": "{{url_for('June')}}", 
+                "Jul": "{{url_for('July')}}",
+                "Aug": "{{url_for('Aug')}}", 
+                "Sep": "{{url_for('Sep')}}",
+                "Oct": "{{url_for('Oct')}}",
+                "Nov": "{{url_for('Nov')}}"
+            } </script>
               <script type="module" src="{{url_for('static', filename='js/weather.js')}}"></script>
             </div>
           </div>
