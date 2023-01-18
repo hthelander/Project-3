@@ -1,5 +1,5 @@
-// Perform an API call to the Local NPS Flask API to get the park information. Call createMarkers when it completes.
-d3.json("http://127.0.0.1:5000/api/v1.0/parks").then(function (parksResponse) {
+// Perform an API call to the Local NPS Flask API to get the park information. 
+d3.json(url).then(function (parksResponse) {
 
   var parks = parksResponse
 

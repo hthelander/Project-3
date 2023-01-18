@@ -15,7 +15,7 @@ print(inspect(engine).get_table_names())
 @app.route("/")
 def welcome():
   return render_template('index.html', pages = {
-    "homepate": "active",
+    "homepage": "active",
     "amenities": "",
     "activities": "",
     "weather": ""
@@ -65,7 +65,7 @@ def images():
 @app.route("/api/v1.0/campgrounds")
 def campgrounds():
 
-    results = engine.execute("select * from camp_df")
+    results = engine.execute("select * from all_camp_df")
     return jsonify([dict(_) for _ in results])
 
 @app.route("/api/v1.0/amenities")
